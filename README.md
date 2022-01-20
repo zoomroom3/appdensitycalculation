@@ -6,3 +6,11 @@ First, we import the dataset csv files:
 population = read.csv("population.csv")
 region_area = read.csv("regionarea.csv")
 ```
+
+Next, we get the total population per city by adding all population of all the barangays in that city
+```sh
+# total population per city = barangay 1 in city + barangay 2 in city + ...
+population_CityProvince = aggregate(population$Population, by=list(CityProvince=population$CityProvince), FUN=sum)
+```
+
+
