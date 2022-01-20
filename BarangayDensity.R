@@ -32,3 +32,26 @@ top_barangay <- head(arrange(barangay_df,desc(density)), n = 5)
 
 #Writing the 'top_barangay' into a csv format
 write.csv(top_barangay,"top_barangay.csv", row.names = FALSE)
+
+
+#Top 5 per City
+per_city <- population_3 %>%
+  arrange(desc(density)) %>% 
+  group_by(CityProvince) %>%
+  slice(1:5)
+per_city
+
+per_city <- select(.data = per_city,CityProvince,Barangay,density)
+
+write.csv(per_city,"top_per_city.csv", row.names = FALSE)
+
+#Top 5 per Region
+per_region <- population_3 %>%
+  arrange(desc(density)) %>% 
+  group_by(region) %>%
+  slice(1:5)
+per_region
+
+per_region <- select(.data = per_region,Region,Barangay,density)
+
+write.csv(per_region,"top_per_region.csv", row.names = FALSE)
