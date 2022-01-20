@@ -42,7 +42,7 @@ per_city
 
 per_city <- select(.data = per_city,CityProvince,Barangay,density)
 
-write.csv(per_city,"top_per_city.csv", row.names = FALSE)
+write.csv(per_city,"top_brgyper_city.csv", row.names = FALSE)
 
 #Top 5 per Region
 per_region <- population_3 %>%
@@ -53,4 +53,4 @@ per_region
 
 per_region <- select(.data = per_region,Region,Barangay,density)
 
-write.csv(per_region,"top_per_region.csv", row.names = FALSE)
+write.csv(per_region,"top_brgyper_region.csv", row.names = FALSE)
